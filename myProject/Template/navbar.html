@@ -1,0 +1,60 @@
+{% block content %}
+{% csrf_token %}
+
+<nav>
+    {% if user.job_type == "office_manage" %}
+    <h3 class="nav-title">Te<span class="text-primary">a</span>m<span class="text-primary">05</span> </h3>
+    <ul>
+        <li><a href="{% url 'deshboardPage' %}">Home</a></li>
+        <li><a href="">AddJob</a></li>
+        <li><a href="">ViewJob</a></li>
+        <li><a href="">Profile</a></li>
+        <li><a href="">View Resume</a></li>
+        <li><a href="{% url 'logoutPage' %}">Logout</a></li>
+    </ul>
+
+
+    {% elif user.job_type == "administrative_assistant" %}
+    <h3 class="nav-title">Rid<span class="text-primary">o</span>y</h3>
+
+    <ul>
+        <li><a href="{% url 'deshboardPage' %}">Home</a></li>
+        <li><a href="">AddJob</a></li>
+        <li><a href="">ViewJob</a></li>
+        <li><a href="">Profile</a></li>
+        <li><a href="">View Resume</a></li>
+        <li><a href="{% url 'logoutPage' %}">Logout</a></li>
+    </ul>
+
+
+
+    {% elif user.job_type == "executive_assistant"%}
+    <h3 class="nav-title">Rid<span class="text-primary">o</span>y</h3>
+
+    <ul>
+        <li><a href="{% url 'deshboardPage' %}">Home</a></li>
+        <li><a href="">AddJob</a></li>
+        <li><a href="">ViewJob</a></li>
+        <li><a href="">Profile</a></li>
+        <li><a href="">View Resume</a></li>
+        <li><a href="{% url 'logoutPage' %}">Logout</a></li>
+    </ul>
+
+
+    {% elif user.job_type == "receptionist"%}
+    <h3 class="nav-title">Rid<span class="text-primary">o</span>y</h3>
+    <ul>
+        <li><a href="{% url 'deshboardPage' %}">Home</a></li>
+        <li><a href="">AddJob</a></li>
+        <li><a href="">ViewJob</a></li>
+        <li><a href="">Profile</a></li>
+        <li><a href="">View Resume</a></li>
+        <li><a href="{% url 'logoutPage' %}">Logout</a></li>
+    </ul>
+
+    {% endif %}
+</nav>
+
+
+
+{% endblock %}

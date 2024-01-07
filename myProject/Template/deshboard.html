@@ -1,0 +1,376 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Office Management</title>
+    <link rel="shortcut icon" href="{% static 'images/icons/react.png' %}" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/06de4e38d7.js" crossorigin="anonymous"></script>
+    <style>
+      /* common shared style */
+body{
+    font-family: 'lato' , sans-serif;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.text-primary{
+    color: #0069D9;
+}
+.btn-primary{
+    border-radius: 5px;
+    background-color: #0069D9;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 15px 35px;
+    border: none;
+}
+/* nav related style */
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 300px;
+    margin: 0 100px;
+}
+.nav-title{
+    color: #181818;
+    font-size: 45px;
+    font-weight: 800;
+}
+nav > ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+nav li{
+    list-style: none;
+    margin-right: 50px;
+}
+nav a{
+    text-decoration: none;
+    color: #474747;
+}
+
+/* header details style */
+
+.header{
+    background-color: #dce6f0;
+    background-image: url("{% static 'images/header_bg.png' %}"), url("{% static 'images/developer.png' %}");
+    background-repeat: no-repeat;
+    background-position: bottom right, top left;
+}
+.banner{
+    padding: 30px 30px 0px 150px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.banner-contain{
+    max-width: 500px;
+}
+.banner .profile-pic{
+    width: 500px;
+}
+
+.banner-greeting{
+    font-size: 45px;
+    color: #474747;
+    margin-bottom: 0px;
+}
+.banner-title{
+    font-size: 85px;
+    font-weight: 700;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+/* main part styles */
+main{
+    max-width: 1140px;
+    margin: 0 auto;
+}
+main section{
+    margin-top: 130px;
+}
+
+/* about styles */
+.about{
+    padding: 130px;
+    border-radius: 10px;
+    background-color: #dce6f0;
+    margin: 130px 0;
+}
+.section-title{
+    color: #181818;
+    text-align: center;
+    font-size: 35px;
+    font-weight: 700;
+}
+
+.section-description{
+    color: #757575;
+    text-align: center;
+    font-size: 18px;
+}
+.about-info-container{
+    display: flex;
+    justify-content: space-around;
+}
+.about-info{
+    text-align: center;
+}
+
+/* skils related skils */
+
+
+#what-i-do-description{
+    padding: 30px 150px;
+}
+.skils-container{
+    display: flex;
+    gap: 24px;
+    justify-content: space-around;
+}
+.skils{
+    padding: 30px;
+    border-radius: 5px;
+    background-color: #FFF;
+    box-shadow: 0 6px 50px 0 rgba(0, 0, 0, 0.06);
+}
+.skils-description{
+    color: #757575;
+}
+
+/* Resume section style */
+
+.resume-column-title{
+    color: #474747;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.resume-container{
+    display: flex;
+    gap: 50px;
+}
+.resume-item-institute, .resume-item-description, hr{
+    color: #757575;
+
+}
+.resume-item-title{
+    color: #474747;
+    font-size: 25px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+.resume-item-institute{
+    font-size: 20px;
+    margin-bottom: 20px;
+    margin-top: 0;
+}
+.resume-item-description{
+    font-size: 16px;
+}
+.resume-container hr{
+    margin: 30px 0px;
+}
+
+.download-cv{
+    text-align: center;
+    margin: 80px;
+}
+
+/* footer section title */
+footer{
+    display: flex;
+    gap: 100px;
+    background-color: #dce6f0;
+    padding: 130px 200px;
+    margin-top: 100px;
+}
+.footer-column{
+    width: 50%;
+}
+.contact input[type="text"],.contact input[type="email"],textarea{
+    display: block;
+    margin-bottom: 24px;
+    padding: 18px 35px;
+    color: #757575;
+    border-radius: 5px;
+    background: #FFF;
+    width: 100%;
+    font-size: 16px;
+    border: none;
+}
+
+.social-link img{
+    margin-right: 20px;
+}
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav>
+          {% include "navbar.html" %} 
+          {% csrf_token %}
+          {% block content %}
+          
+          
+          {% endblock %}
+        </nav>
+        <div class="banner">
+            <div class="banner-contain">
+                <h4 class="banner-greeting">Hi, We are Team05</h4>
+                <h1 class="banner-title">R <span class="text-primary">M</span> K <span class="text-primary">Z</span></h1>
+                <p class="banner-discraption">This is our first group work. here we build a office management project.where we can published everything. And we can control our company and our office properly.</p>
+                <button class="btn-primary"><i class="fa-solid fa-circle-down"></i> About us</button>
+                <button class="btn-primary"><i class="fa-solid fa-phone"></i> Contact </button>
+            </div>
+            <img class="profile-pic" src="{% static 'images/team.png' %}" alt="hardy">
+        </div>
+
+    </header>
+    <main>
+        <section class="about">
+            <h3 class="section-title">About Us</h3>
+            <p class="section-description">I, m a designer & developer with a passion for web design. I enjoy developing simple, clean and slick websites that provide real value to the end user. Thousands of clients have procured exceptional resulfs while working with me. Delivering work within time and budget which meets clients requirements in our mata.A group project is an ideal opportunity to sharpen your problem-solving and team-building techniques, which are important skills you’ll need throughout your career. In a survey by the National Association of Colleges and Employers, 82 percent of employers said that the ability to work well with a team was one of the most highly-valued qualities in an employee.</p>
+
+              <p class="section-description">While group work is an important part of your learning experience and professional development in college, it can sometimes be a source of stress and anxiety. Working in a team isn’t always easy, especially when those in your group have different schedules or working styles than your own.</p>
+              
+              <p class="section-description">But don't get discouraged! With the right approach, you can set your group up for success and take away valuable lessons for your career.</p>
+
+            <div class="about-info-container">
+                <div class="about-info">
+                    <h4 class="info-title">Name</h4>
+                    <p class="info-description">Ridoy Mojumder</p>
+                </div>
+                <div class="about-info">
+                    <h4 class="info-title">Email</h4>
+                    <p class="info-description">hridoymoju463@gmail.com</p>
+                </div>
+                <div class="about-info">
+                    <h4 class="info-title">Date of Birth</h4>
+                    <p class="info-description">22-11-2000</p>
+                </div>
+                <div class="about-info">
+                    <h4 class="info-title">From</h4>
+                    <p class="info-description">Bangladesh</p>
+                </div>
+            </div>
+        </section>
+        <!-- what i do section start -->
+        <section>
+            <h3 class="section-title">What we do</h3>
+            <p id="what-i-do-description" class="section-description">I have more than 10 years experience building software for clients all over the world. Below is a quick overview of my main technical skill sets and technologies i use. Want to find out more about my experience? Check out my online resume and project portfolio.</p>
+
+            <div class="skils-container">
+                <div class="skils">
+                    <img src="images/icons/js.png" alt="">
+                    <h3 class="skils-title">Vanilla JavaScript</h3>
+                    <p class="skils-description">List skill/technologies here. You can change the icon above to any of the 1500+ FontAwesome 5 free icons available. Aenean commodo ligula eget dolor.</p>
+                </div>
+                <div class="skils">
+                    <img src="images/icons/react.png" alt="">
+                    <h3 class="skils-title">React</h3>
+                    <p class="skils-description">List skill/technologies here. You can change the icon above to any of the 1500+ FontAwesome 5 free icons available. Aenean commodo ligula eget dolor.</p>
+                </div>
+                <div class="skils">
+                    <img src="images/icons/nodejs.png" alt="">
+                    <h3 class="skils-title">Node.js</h3>
+                    <p class="skils-description">List skill/technologies here. You can change the icon above to any of the 1500+ FontAwesome 5 free icons available. Aenean commodo ligula eget dolor.</p>
+                </div>
+                <div class="skils">
+                    <img src="images/icons/mongo.png" alt="">
+                    <h3 class="skils-title">MongoDB</h3>
+                    <p class="skils-description">List skill/technologies here. You can change the icon above to any of the 1500+ FontAwesome 5 free icons available. Aenean commodo ligula eget dolor.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resume Section -->
+        <section>
+            <h3 class="section-title">A summary of Our Resume</h3>
+            <div class="resume-container">
+                <div class="resume-column">
+                    <h3 class="resume-column-title">Our Education</h3>
+                    <div class="resume-item">
+                        <h2 class="resume-item-title">Master in Computer Engineering</h2>
+                        <h3 class="resume-item-institute"> Harvard University / 2015 - 2017</h3>
+                        <p class="resume-item-description">List skill/technologies here. You can change the icon above 
+                            to any of the 1500+ FontAwesome 5 free icons available. Aenean commodo ligula eget dolor.
+                        </p>
+                        <hr>
+                        <h2 class="resume-item-title">Master in Computer Engineering</h2>
+                        <h3 class="resume-item-institute">Harvard University / 2015 - 2017</h3>
+                        <p class="resume-item-description">List skill/technologies here. You can change the icon above 
+                            to any of the 1500+ FontAwesome 5 free icons available. Aenean commodo ligula eget dolor.
+                        </p>
+                        <hr>
+                        <h2 class="resume-item-title">Master in Computer Engineering</h2>
+                        <h3 class="resume-item-institute">Harvard University / 2015 - 2017</h3>
+                        <p class="resume-item-description">List skill/technologies here. You can change the icon above 
+                            to any of the 1500+ FontAwesome 5 free icons available. Aenean commodo ligula eget dolor.
+                        </p>
+                    </div>
+
+                </div>
+                <div class="resume-column">
+                    <h3 class="resume-column-title">Our Experience</h3>
+                    <div class="resume-item">
+                        <h2 class="resume-item-title">Sr. Font End Developer</h2>
+                        <h3 class="resume-item-institute">Apple Inc / 2020 - Current</h3>
+                        <p class="resume-item-description">List skill/technologies here. You can change the icon above 
+                            to any of the 1500+ FontAwesome 5 free icons available. Aenean commodo ligula eget dolor.
+                        </p>
+                        <hr>
+                        <h2 class="resume-item-title">Jr. Font End Developer</h2>
+                        <h3 class="resume-item-institute">Dribbble Inc / 2018 - 2022
+                        </h3>
+                        <p class="resume-item-description">List skill/technologies here. You can change the icon above 
+                            to any of the 1500+ FontAwesome 5 free icons available. Aenean commodo ligula eget dolor.
+                        </p>
+                        <hr>
+                        <h2 class="resume-item-title">HTML Developer</h2>
+                        <h3 class="resume-item-institute">Adobe Inc / 2017 - 2018</h3>
+                        <p class="resume-item-description">List skill/technologies here. You can change the icon above 
+                            to any of the 1500+ FontAwesome 5 free icons available. Aenean commodo ligula eget dolor.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="download-cv">
+                <button class="btn-primary">Download CV</button>
+            </div>
+        </section>
+
+    </main>
+    <footer>
+        <div class="footer-column">
+            <h3 class="section-title">Lets Connect</h3>
+            <p class="section-description">Please fill out the form on this section to contact with me or call between 9:00 A.M and 8.00 P.M ET, Monday through Friday.</p>
+        <div class="social-link">
+            <img src="images/icons/facebook.png" alt="">
+            <img src="images/icons/insta.png" alt="">
+            <img src="images/icons/twitter.png" alt="">
+        </div>
+        </div>
+        <div class="footer-column">
+            <h3 class="section-title">Let’s Message Us</h3>
+            <form action="" class="contact">
+                <input type="text" placeholder="Your Name">
+                <input type="email" name="" id="" placeholder="Your Email">
+                <textarea name="" id="" cols="30" rows="10">Message</textarea>
+                <input class="btn-primary" type="submit" value="Submit">
+            </form>
+        </div>
+    </footer>
+</body>
+</html>

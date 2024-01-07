@@ -1,0 +1,108 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Signup Form</title>
+    <link rel="shortcut icon" href="signup.png" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            background-image: url("{% static 'images/bg.jpg' %}");
+            background-size: 100%;
+            border-image-width: 100%;
+        }
+
+        .card-body {
+            background-image: url("{% static 'images/header_bg.png' %}")
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border-color: #0069D9;
+        }
+
+        button {
+            background-color: #0069D9;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0069D9;
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h4><b>Sign Up</b></h4>
+                    </div>
+                    <div class="card-body">
+                        <form method="POST">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="username"><b>Username : </b></label>
+                                <input type="text" class="form-control" name="username" id="username" placeholder="Enter your username" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="displayName"><b>Display Name : </b></label>
+                                <input type="text" class="form-control" id="displayName" name="displayName" placeholder="Enter your display name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email"><b>Email : </b></label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password"><b>Password : </b></label>
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="jobType"><b>Job Type : </b></label>
+                                <select class="form-control" id="jobType" name="jobType" required>
+                                    <option value="" disabled selected>Select your job type</option>
+                                    <option value="office_manage">Office Manager</option>
+                                    <option value="administrative_assistant">Administrative Assistant</option>
+                                    <option value="executive_assistant">Executive Assistant</option>
+                                    <option value="receptionist">Receptionist</option>
+                                    <!-- Add more job types as needed -->
+                                </select>
+                            </div>   
+                            <button type="submit" class="btn btn-primary">Sign Up</button>
+                        </form>
+                        <p class="text-center">I have a account <a href="{% url 'singinPage' %}" >Sign In</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

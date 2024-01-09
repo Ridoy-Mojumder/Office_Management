@@ -1,0 +1,323 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Office Management</title>
+    <link rel="shortcut icon" href="{% static 'images/icons/react.png' %}" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/06de4e38d7.js" crossorigin="anonymous"></script>
+    <style>
+      /* common shared style */
+body{
+    font-family: 'lato' , sans-serif;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.text-primary{
+    color: #0069D9;
+}
+.btn-primary{
+    border-radius: 5px;
+    background-color: #0069D9;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 15px 35px;
+    border: none;
+}
+/* nav related style */
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 300px;
+    margin: 0 100px;
+}
+.nav-title{
+    color: #181818;
+    font-size: 45px;
+    font-weight: 800;
+}
+nav > ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+nav li{
+    list-style: none;
+    margin-right: 50px;
+}
+nav a{
+    text-decoration: none;
+    color: #474747;
+}
+
+/* header details style */
+
+.header{
+    background-color: #dce6f0;
+    background-image: url("{% static 'images/header_bg.png' %}"), url("{% static 'images/developer.png' %}");
+    background-repeat: no-repeat;
+    background-position: bottom right, top left;
+}
+.banner{
+    padding: 30px 30px 0px 150px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.banner-contain{
+    max-width: 500px;
+}
+.banner .profile-pic{
+    width: 500px;
+}
+
+.banner-greeting{
+    font-size: 45px;
+    color: #474747;
+    margin-bottom: 0px;
+}
+.banner-title{
+    font-size: 85px;
+    font-weight: 700;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+/* main part styles */
+main{
+    max-width: 1140px;
+    margin: 0 auto;
+}
+main section{
+    margin-top: 130px;
+}
+
+/* about styles */
+.about{
+    padding: 130px;
+    border-radius: 10px;
+    background-color: #dce6f0;
+    margin: 130px 0;
+}
+.section-title{
+    color: #181818;
+    text-align: center;
+    font-size: 35px;
+    font-weight: 700;
+}
+
+.section-description{
+    color: #757575;
+    text-align: center;
+    font-size: 18px;
+}
+.about-info-container{
+    display: flex;
+    justify-content: space-around;
+}
+.about-info{
+    text-align: center;
+}
+.profile-container { 
+            max-width: 600px; 
+            margin: 50px auto; 
+            background-color: #fff; 
+            border-radius: 8px; 
+            overflow: hidden; 
+        } 
+ 
+        .profile-header { 
+            text-align: center; 
+            background-color: #dce6f0; 
+            color: #fff; 
+        } 
+ 
+        .profile-picture { 
+            border-radius: 50%; 
+            width: 150px; 
+            height: 150px; 
+            object-fit: cover; 
+            margin-bottom: 20px; 
+            border: 5px solid #fff; /* Add border to profile picture */ 
+        } 
+ 
+        h1, p { 
+            margin: 10px 0; 
+        } 
+ 
+        .edit-profile-button { 
+            display: inline-block; 
+            padding: 10px 20px; 
+            background-color: #0069D9; 
+            color: #fff; 
+            text-decoration: none; 
+            border-radius: 5px; 
+            margin-top: 10px; 
+        } 
+ 
+        .edit-profile-button:hover { 
+            background-color: #0069D9; 
+        } 
+ 
+        .profile-info { 
+            padding: 20px; 
+        } 
+ 
+        .profile-info h2 { 
+            margin-bottom: 10px; 
+        } 
+ 
+        .skills-list { 
+            list-style-type: none; 
+            padding: 0; 
+            margin: 0; 
+        } 
+ 
+        .skills-list li { 
+            margin-bottom: 5px; 
+        } 
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .job-form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            resize: vertical;
+            height: 100px;
+        }
+
+        button {
+            background-color: #0069D9;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0069D9;
+        }
+        .container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 400px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    input[type="text"],
+    input[type="file"] {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 16px;
+      box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+      background-color: #0069D9;
+      color: #fff;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #0069D9;
+    }
+
+
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav>
+          {% include "navbar.html" %} 
+          {% csrf_token %}
+          {% block content %}
+          
+          
+          {% endblock %}
+        </nav>
+
+    </header>
+    <main>
+        <section class="about">
+            <form action="{% url 'add_taskPage' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="task_title">Task Title:</label>
+                    <input type="text" id="task_title" name="task_title" required>
+                </div>
+        
+        
+                <div class="form-group">
+                    <label for="task_description">Task Description:</label>
+                    <textarea id="description" name="task_description" required></textarea>
+                </div>
+        
+        
+        
+                <div class="form-group">
+                    <label for="profilePicture">Upload Picture</label>
+                    <input type="file" class="form-control-file" id="profilePicture" name="profilePicture">
+                    <small class="form-text text-muted">Upload your Picture in FILE format.</small>
+                </div>
+        
+                <button type="submit">Create a new Task</button>
+            </form>
+    </main>
+</body>
+</html>

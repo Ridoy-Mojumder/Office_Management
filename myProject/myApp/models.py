@@ -17,7 +17,17 @@ class Office_User(AbstractUser):
         return self.display_name or "No Display Name"
 
 
+class task_model(models.Model):
+    task_title=models.CharField(max_length=100,null=True)
+    task_description=models.TextField()
+    Profile_Pic=models.ImageField(upload_to="media/Profile_Pic",null=True)
+    create_at=models.DateTimeField(auto_now_add=True,null=True)
+    update_time=models.DateTimeField(auto_now=True,null=True)
+    task_creator=models.ForeignKey(Office_User, on_delete=models.CASCADE)
 
+
+    def __str__(self):
+        return self.task_title
 
 
 class Office_Manager_Profile(models.Model):

@@ -1,0 +1,261 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Office Management</title>
+    <link rel="shortcut icon" href="{% static 'images/icons/react.png' %}" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/06de4e38d7.js" crossorigin="anonymous"></script>
+    <style>
+      /* common shared style */
+body{
+    font-family: 'lato' , sans-serif;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.text-primary{
+    color: #0069D9;
+}
+.btn-primary{
+    border-radius: 5px;
+    background-color: #0069D9;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 15px 35px;
+    border: none;
+}
+/* nav related style */
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 300px;
+    margin: 0 100px;
+}
+.nav-title{
+    color: #181818;
+    font-size: 45px;
+    font-weight: 800;
+}
+nav > ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+nav li{
+    list-style: none;
+    margin-right: 50px;
+}
+nav a{
+    text-decoration: none;
+    color: #474747;
+}
+
+/* header details style */
+
+.header{
+    background-color: #dce6f0;
+    background-image: url("{% static 'images/header_bg.png' %}"), url("{% static 'images/developer.png' %}");
+    background-repeat: no-repeat;
+    background-position: bottom right, top left;
+}
+.banner{
+    padding: 30px 30px 0px 150px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.banner-contain{
+    max-width: 500px;
+}
+.banner .profile-pic{
+    width: 500px;
+}
+
+.banner-greeting{
+    font-size: 45px;
+    color: #474747;
+    margin-bottom: 0px;
+}
+.banner-title{
+    font-size: 85px;
+    font-weight: 700;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+/* main part styles */
+main{
+    max-width: 1140px;
+    margin: 0 auto;
+}
+main section{
+    margin-top: 130px;
+}
+
+/* about styles */
+.about{
+    padding: 130px;
+    border-radius: 10px;
+    background-color: #dce6f0;
+    margin: 130px 0;
+    background-image: url("{% static 'images/header_bg.png' %}");
+    background-repeat: no-repeat;
+    background-position: bottom right, top left;
+}
+.section-title{
+    color: #181818;
+    text-align: center;
+    font-size: 35px;
+    font-weight: 700;
+}
+
+.section-description{
+    color: #757575;
+    text-align: center;
+    font-size: 18px;
+}
+.about-info-container{
+    display: flex;
+    justify-content: space-around;
+}
+.about-info{
+    text-align: center;
+}
+.profile-container { 
+            max-width: 600px; 
+            margin: 50px auto; 
+            background-color: #fff; 
+            border-radius: 8px; 
+            overflow: hidden; 
+        } 
+ 
+        .profile-header { 
+            text-align: center; 
+            background-color: #dce6f0; 
+            color: #fff; 
+        } 
+ 
+        .profile-picture { 
+            border-radius: 50%; 
+            width: 150px; 
+            height: 150px; 
+            object-fit: cover; 
+            margin-bottom: 20px; 
+            border: 5px solid #fff; /* Add border to profile picture */ 
+        } 
+ 
+        h1, p { 
+            margin: 10px 0; 
+        } 
+ 
+        .edit-profile-button { 
+            display: inline-block; 
+            padding: 10px 20px; 
+            background-color: #2ecc71; 
+            color: #fff; 
+            text-decoration: none; 
+            border-radius: 5px; 
+            margin-top: 10px; 
+        } 
+ 
+        .edit-profile-button:hover { 
+            background-color: #27ae60; 
+        } 
+ 
+        .profile-info { 
+            padding: 20px; 
+        } 
+ 
+        .profile-info h2 { 
+            margin-bottom: 10px; 
+        } 
+ 
+        .skills-list { 
+            list-style-type: none; 
+            padding: 0; 
+            margin: 0; 
+        } 
+ 
+        .skills-list li { 
+            margin-bottom: 5px; 
+        } 
+
+
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav>
+          {% include "navbar.html" %} 
+          {% csrf_token %}
+          {% block content %}
+          
+          
+          {% endblock %}
+        </nav>
+
+    </header>
+    <main>
+        <section class="about">
+            <form action="" method="POST" enctype="multipart/form-data">
+                <div class="profile-container"> 
+                    <div class="profile-header"> 
+                        {% if user.job_type == 'office_manage' %} 
+                 
+                        <img class="profile-picture" src="/{{ request.user.Profile_picture }}" > 
+                 
+                        {% elif user.job_type == 'administrative_assistant' %} 
+                 
+                        <img class="profile-picture" src="/{{ request.user.Profile_picture }}" > 
+            
+            
+                        {% elif user.job_type == 'executive_assistant' %} 
+                 
+                        <img class="profile-picture" src="/{{ request.user.Profile_picture }}" >  
+            
+            
+                        {% elif user.job_type == 'receptionist' %} 
+                 
+                        <img class="profile-picture" src="/{{ request.user.Profile_picture }}" > 
+                        {% endif %}
+                    </div>   
+                </div> 
+            <h3 class="section-title">{{ request.user.display_name }}</h3>
+             
+            <p class="section-description">I, m a designer & developer with a passion for web design. I enjoy developing simple, clean and slick websites that provide real value to the end user. Thousands of clients have procured exceptional resulfs while working with me. Delivering work within time and budget which meets clients requirements in our mata.A group project is an ideal opportunity to sharpen your problem-solving and team-building techniques, which are important skills you’ll need throughout your career. In a survey by the National Association of Colleges and Employers, 82 percent of employers said that the ability to work well with a team was one of the most highly-valued qualities in an employee.</p>
+
+
+            <div class="about-info-container">
+                <div class="about-info">
+                    <h4 class="info-title">Name</h4>
+                    <p class="info-description"> 
+                        <p>{{ request.user.display_name }}</p> </p>
+                </div>
+                <div class="about-info">
+                    <h4 class="info-title">Email</h4>
+                    <p class="info-description">{{ request.user.email }}</p>
+                </div>
+                <div class="about-info">
+                    <h4 class="info-title">Job Type</h4>
+                    <p class="info-description">{{ request.user.job_type }}</p>
+                </div>
+                <div class="about-info">
+                    <h4 class="info-title">Date Joined</h4>
+                    <p class="info-description">{{ request.user.date_joined }}</p>
+                </div>
+            </div>
+        </section>
+        
+    </form>
+    </main>
+</body>
+</html>

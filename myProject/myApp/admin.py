@@ -6,6 +6,7 @@ class office_User_Display(admin.ModelAdmin):
 
     
 admin.site.register(Office_User,office_User_Display)
+admin.site.register(task_model)
 admin.site.register(Office_Manager_Profile)
 admin.site.register(Administrative_Assistant_Profile)
 admin.site.register(Executive_Assistant_Profile)

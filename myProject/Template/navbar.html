@@ -6,10 +6,10 @@
     <h3 class="nav-title">Te<span class="text-primary">a</span>m<span class="text-primary">05</span> </h3>
     <ul>
         <li><a href="{% url 'deshboardPage' %}">Home</a></li>
-        <li><a href="">AddJob</a></li>
-        <li><a href="">ViewJob</a></li>
-        <li><a href="">Profile</a></li>
-        <li><a href="">View Resume</a></li>
+        <li><a href="{% url 'view_taskPage' %}">Tasks</a></li>
+        <li><a href="{% url 'view_team_member_page'%}">Teams</a></li>
+        <li><a href="#reports">Reports</a></li>
+        <li><a href="{% url 'profilePage'%}">Profile</a></li>
         <li><a href="{% url 'logoutPage' %}">Logout</a></li>
     </ul>
 
@@ -19,10 +19,11 @@
 
     <ul>
         <li><a href="{% url 'deshboardPage' %}">Home</a></li>
-        <li><a href="">AddJob</a></li>
-        <li><a href="">ViewJob</a></li>
-        <li><a href="">Profile</a></li>
-        <li><a href="">View Resume</a></li>
+        <li><a href="{% url 'view_taskPage' %}">Tasks</a></li>
+        <li><a href="{% url 'view_team_member_page'%}">Teams</a></li>
+        <li><a href="{% url 'contactUs_Page'%}">Contacts</a></li>
+        <li><a href="#documents">Documents</a></li>
+        <li><a href="{% url 'profilePage'%}">Profile</a></li>
         <li><a href="{% url 'logoutPage' %}">Logout</a></li>
     </ul>
 
@@ -33,10 +34,11 @@
 
     <ul>
         <li><a href="{% url 'deshboardPage' %}">Home</a></li>
-        <li><a href="">AddJob</a></li>
-        <li><a href="">ViewJob</a></li>
-        <li><a href="">Profile</a></li>
-        <li><a href="">View Resume</a></li>
+        <li><a href="{% url 'view_taskPage' %}">Tasks</a></li>
+        <li><a href="{% url 'view_team_member_page'%}">Teams</a></li>
+        <li><a href="#meetings">Meetings</a></li>
+        <li><a href="{% url 'contactUs_Page'%}">Contacts</a></li>
+        <li><a href="{% url 'profilePage'%}">Profile</a></li>
         <li><a href="{% url 'logoutPage' %}">Logout</a></li>
     </ul>
 
@@ -45,10 +47,11 @@
     <h3 class="nav-title">Rid<span class="text-primary">o</span>y</h3>
     <ul>
         <li><a href="{% url 'deshboardPage' %}">Home</a></li>
-        <li><a href="">AddJob</a></li>
-        <li><a href="">ViewJob</a></li>
-        <li><a href="">Profile</a></li>
-        <li><a href="">View Resume</a></li>
+        <li><a href="{% url 'view_taskPage' %}">Appointments</a></li>
+        <li><a href="{% url 'view_team_member_page'%}">Teams</a></li>
+        <li><a href="#guests">Guests</a></li>
+        <li><a href="{% url 'message_Page'%}">Messages</a></li>
+        <li><a href="{% url 'profilePage'%}">Profile</a></li>
         <li><a href="{% url 'logoutPage' %}">Logout</a></li>
     </ul>
 
